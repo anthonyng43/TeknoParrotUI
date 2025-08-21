@@ -8,19 +8,7 @@ namespace TeknoParrotUi.Common
 {
     public enum EmulatorType
     {
-        //Open Source
-        OpenParrot,
-        //Lindbergh (Linux/BudgieLoader)
-        Lindbergh,
-        //Other
-        TeknoParrot,
-        //System N2 (Linux/special BudgieLoader)
-        N2,
-        //Open Source Konami
-        OpenParrotKonami,
-        //SegaTools
-        SegaTools,
-        // New Linux Loader
-        ElfLdr2
+        //Open Parrot
+        OpenParrot
     }
 }

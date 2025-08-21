@@ -13,7 +13,9 @@ namespace TeknoParrotUi.Common
     public class FieldInformation
     {
         public string CategoryName { get; set; }
+        public string CategoryNameJp { get; set; }
         public string FieldName { get; set; }
+        public string FieldNameJp { get; set; }
         public string FieldValue { get; set; }
         public FieldType FieldType { get; set; }
         public int FieldMin { get; set; }

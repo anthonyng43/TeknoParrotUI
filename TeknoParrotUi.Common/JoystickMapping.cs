@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml.Serialization;
+using System.Globalization;
 using Keys = System.Windows.Forms.Keys;
 
 namespace TeknoParrotUi.Common
@@ -199,7 +200,8 @@ namespace TeknoParrotUi.Common
         P4RelativeDown,
         P4RelativeLeft,
         P4RelativeRight,
-        Wmmt3InsertCard
+        Wmmt3InsertCard,
+        WmmtTapBanapass
     }
 
     public enum AnalogType
@@ -238,6 +240,7 @@ namespace TeknoParrotUi.Common
     public class JoystickButtons
     {
         public string ButtonName { get; set; }
+        public string ButtonNameJp {  get; set; }
         public JoystickButton DirectInputButton { get; set; }
         public XInputButton XInputButton { get; set; }
         public RawInputButton RawInputButton { get; set; }

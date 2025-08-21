@@ -147,10 +147,10 @@
     <Compile Include="InputProfiles\Helpers\AnalogHelper.cs" />
     <Compile Include="InputProfiles\Helpers\DigitalHelper.cs" />
     <Compile Include="InputProfiles\Helpers\WMMT3Cards.cs" />
+    <Compile Include="InputProfiles\Helpers\WMMTBanapass.cs" />
     <Compile Include="Jvs\JVSIdentifiers.cs" />
     <Compile Include="Jvs\JVSPackets.cs" />
     <Compile Include="Lazydata.cs" />
-    <Compile Include="ModData.cs" />
     <Compile Include="Pipes\AAAPipe.cs" />
     <Compile Include="Pipes\APM3Pipe.cs" />
     <Compile Include="Pipes\BanapassButton.cs" />
@@ -196,31 +196,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Descriptions\WMMT6 - Terminal.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Descriptions\*.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="Descriptions\WMMT6.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="GameProfiles\WMMT3.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GameProfiles\WMMT5.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GameProfiles\WMMT5DX.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GameProfiles\WMMT5DXPlus.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="GameProfiles\WMMT6 - Terminal.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="GameProfiles\WMMT6.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GameProfiles\WMMT6R.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HookedWindows.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

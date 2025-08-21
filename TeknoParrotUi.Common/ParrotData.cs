@@ -19,11 +19,12 @@ namespace TeknoParrotUi.Common
         
         public bool UseDiscordRPC { get; set; }
         public bool SilentMode { get; set; }
-        public bool CheckForUpdates { get; set; } = true;
+        public bool CheckForUpdates { get; set; } = false;
 
         public bool ConfirmExit { get; set; } = true;
         public bool DownloadIcons { get; set; } = true;
         public bool UiDisableHardwareAcceleration { get; set; } = false;
+        public bool HideVanguardWarning { get; set; } = true;
 
         public string UiColour { get; set; } = "lightblue";
         public bool UiDarkMode { get; set; } = false;

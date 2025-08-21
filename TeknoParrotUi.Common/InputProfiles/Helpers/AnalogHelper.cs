@@ -73,12 +73,18 @@ namespace TeknoParrotUi.Common.InputProfiles.Helpers
 
             if (button.IsLeftTrigger)
             {
-                result = state.Gamepad.LeftTrigger;
+                var value = state.Gamepad.LeftTrigger;
+                int valueint = (int)value;
+                valueint = valueint / 3;
+                result = (byte)valueint;
             }
 
             if (button.IsRightTrigger)
             {
-                result = state.Gamepad.RightTrigger;
+                var value = state.Gamepad.RightTrigger;
+                int valueint = (int)value;
+                valueint = valueint / 3;
+                result = (byte)valueint;
             }
 
             if (result < minVal)
@@ -93,22 +99,6 @@ namespace TeknoParrotUi.Common.InputProfiles.Helpers
         {
             int minValWheel = 0;
             int maxValWheel = 255;
-            switch (gameProfile.EmulationProfile)
-            {
-                case EmulationProfile.SegaInitialD:
-                case EmulationProfile.SegaInitialDLindbergh:
-                    minValWheel = 0x1F;
-                    maxValWheel = 0xE1;
-                    break;
-                case EmulationProfile.SegaSonicAllStarsRacing:
-                    minValWheel = 0x1D;
-                    maxValWheel = 0xED;
-                    break;
-                case EmulationProfile.HummerExtreme:
-                    minValWheel = 0x1D;
-                    maxValWheel = 0xE0;
-                    break;
-            }
 
             if (button.IsLeftThumbX)
             {

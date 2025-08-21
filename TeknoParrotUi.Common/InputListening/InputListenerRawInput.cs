@@ -101,12 +101,6 @@ namespace TeknoParrotUi.Common.InputListening
         {
             // Reset all class members here!
             _joystickButtons = joystickButtons.Where(x => x?.RawInputButton != null).ToList(); // Only configured buttons
-            _minX = gameProfile.xAxisMin;
-            _maxX = gameProfile.xAxisMax;
-            _minY = gameProfile.yAxisMin;
-            _maxY = gameProfile.yAxisMax;
-            _invertedMouseAxis = gameProfile.InvertedMouseAxis;
-            _isLuigisMansion = gameProfile.EmulationProfile == EmulationProfile.LuigisMansion;
 
             _windowed = gameProfile.ConfigValues.Any(x => x.FieldName == "Windowed" && x.FieldValue == "1") || gameProfile.ConfigValues.Any(x => x.FieldName == "DisplayMode" && x.FieldValue == "Windowed");
             _windowFound = false;

@@ -2,6 +2,11 @@
 {
     public enum EmulationProfile
     {
+        NamcoWmmt5
+    }
+
+    /*public enum EmulationProfile
+    {
         TaitoTypeXGeneric,
         SegaJvs,
         SegaRacingClassic,
@@ -85,5 +90,5 @@
         NamcoWmmt3,
         HummerExtreme,
         AAA
-    }
+    }*/
 }

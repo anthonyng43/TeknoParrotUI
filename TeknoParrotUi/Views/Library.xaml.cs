@@ -33,17 +33,6 @@ namespace TeknoParrotUi.Views
         private ContentControl _contentControl;
         public bool listRefreshNeeded = false;
 
-        public void UpdatePatronText()
-        {
-            using (var key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\TeknoGods\TeknoParrot"))
-            {
-                var isPatron = key != null && key.GetValue("PatreonSerialKey") != null;
-
-                if (isPatron)
-                    textBlockPatron.Text = "Yes";
-            }
-        }
-
         public Library(ContentControl contentControl)
         {
             InitializeComponent();
@@ -52,9 +41,6 @@ namespace TeknoParrotUi.Views
                 UriKind.Absolute));
 
             gameIcon.Source = imageBitmap;
-
-            UpdatePatronText();
-
             _contentControl = contentControl;
             Joystick =  new JoystickControl(contentControl, this);
         }
@@ -148,16 +134,7 @@ namespace TeknoParrotUi.Views
 
             _gameSettings.LoadNewSettings(profile, modifyItem, _contentControl, this);
             Joystick.LoadNewSettings(profile, modifyItem);
-            if (!profile.HasSeparateTestMode)
-            {
-                ChkTestMenu.IsChecked = false;
-                ChkTestMenu.IsEnabled = false;
-            }
-            else
-            {
-                ChkTestMenu.IsEnabled = true;
-                ChkTestMenu.ToolTip = Properties.Resources.LibraryToggleTestMode;
-            }
+
             var selectedGame = _gameNames[gameList.SelectedIndex];
             gameInfoText.Text = $"{Properties.Resources.LibraryEmulator}: {selectedGame.EmulatorType} ({(selectedGame.Is64Bit ? "x64" : "x86")})\n{(selectedGame.GameInfo == null ? Properties.Resources.LibraryNoInfo : selectedGame.GameInfo.ToString())}";
         }
@@ -184,17 +161,12 @@ namespace TeknoParrotUi.Views
             // Populate list
             foreach (var gameProfile in GameProfileLoader.UserProfiles)
             {
-                // third-party emulators
-                var thirdparty = gameProfile.EmulatorType == EmulatorType.SegaTools;
-
                 // check the existing user profiles
                 var existing = GameProfileLoader.UserProfiles.FirstOrDefault((profile) => profile.GameName == gameProfile.GameName) != null;
 
                 var item = new ListBoxItem
                 {
-                    Content = gameProfile.GameName +
-                                (gameProfile.Patreon ? " (Patreon)" : "") +
-                                (thirdparty ? $" (Third-Party - {gameProfile.EmulatorType})" : ""),
+                    Content = gameProfile.GameName,
                     Tag = gameProfile
                 };
 
@@ -254,8 +226,6 @@ namespace TeknoParrotUi.Views
 
             if (Application.Current.Windows.OfType<MainWindow>().Single()._updaterComplete)
             {
-                Application.Current.Windows.OfType<MainWindow>().Single().updates = new List<GitHubUpdates>();
-                Application.Current.Windows.OfType<MainWindow>().Single().checkForUpdates(true);
                 Application.Current.Windows.OfType<MainWindow>().Single()._updaterComplete = false;
             }
         }
@@ -284,45 +254,11 @@ namespace TeknoParrotUi.Views
             }
 
             loaderExe = is64Bit ? ".\\OpenParrotx64\\OpenParrotLoader64.exe" : ".\\OpenParrotWin32\\OpenParrotLoader.exe";
-            loaderDll = string.Empty;
-
-            switch (gameProfile.EmulatorType)
-            {
-                case EmulatorType.Lindbergh:
-                    throw new Exception("Lindbergh games are not supported. This build is for Wangan Midnight Maximum Tune 6.");
-                case EmulatorType.N2:
-                    throw new Exception("N2 games are not supported. This build is for Wangan Midnight Maximum Tune 6.");
-                case EmulatorType.ElfLdr2:
-                    throw new Exception("Elfldr2 games are not supported. This build is for Wangan Midnight Maximum Tune 6.");
-                case EmulatorType.OpenParrot:
-                    loaderDll = (is64Bit ? ".\\OpenParrotx64\\OpenParrot64" : ".\\OpenParrotWin32\\OpenParrot");
-                    break;
-                case EmulatorType.OpenParrotKonami:
-                    throw new Exception("Konami games are not supported. This build is for Wangan Midnight Maximum Tune 6.");
-                case EmulatorType.SegaTools:
-                    throw new Exception("SegaTools are not supported in this build. TeknoParrot is stealing others' work by including this.");
-                default:
-                    break;
-            }
-
-            // The arcade community hates you.
-            if (File.Exists("CustomSettings.json"))
-            {
-                var s = Custom.CustomSettings.LoadSettings();
-                loaderExe = Path.Combine(s.OpenParrotPath, "OpenParrotLoader64.exe");
-                loaderDll = Path.Combine(s.OpenParrotPath, "OpenParrot64");
-            }
+            loaderDll = (is64Bit ? ".\\OpenParrotx64\\OpenParrot64" : ".\\OpenParrotWin32\\OpenParrot");
 
             if (!File.Exists(loaderExe))
             {
                 MessageBoxHelper.ErrorOK(string.Format(Properties.Resources.LibraryCantFindLoader, loaderExe));
-                return false;
-            }
-
-            var dll_filename = loaderDll + ".dll";
-            if (loaderDll != string.Empty && !File.Exists(dll_filename) && gameProfile.EmulationProfile != EmulationProfile.SegaToolsIDZ)
-            {
-                MessageBoxHelper.ErrorOK(string.Format(Properties.Resources.LibraryCantFindLoader, dll_filename));
                 return false;
             }
 
@@ -349,15 +285,9 @@ namespace TeknoParrotUi.Views
 
                 if (!File.Exists(gameProfile.GamePath2))
                 {
-                    MessageBoxHelper.ErrorOK(string.Format(Properties.Resources.LibraryCantFindGame, gameProfile.GamePath));
+                    MessageBoxHelper.ErrorOK(string.Format(Properties.Resources.LibraryCantFindGame, gameProfile.GamePath2));
                     return false;
                 }
-            }
-
-            if (gameProfile.EmulationProfile == EmulationProfile.FastIo || gameProfile.EmulationProfile == EmulationProfile.Theatrhythm)
-            {
-                if (!CheckiDMAC(gameProfile.GamePath, gameProfile.Is64Bit))
-                    return false;
             }
 
             if (gameProfile.RequiresAdmin)
@@ -589,117 +519,13 @@ namespace TeknoParrotUi.Views
                 JoystickHelper.Serialize();
             }
 
-            var testMenu = ChkTestMenu.IsChecked;
+            var testMenu = false;
 
             if (ValidateAndRun(gameProfile, out var loader, out var dll, false, this, testMenu))
             {
                 var gameRunning = new GameRunning(gameProfile, loader, dll, testMenu, false, false, this);
                 Application.Current.Windows.OfType<MainWindow>().Single().contentControl.Content = gameRunning;
             }
-        }
-
-        /// <summary>
-        /// This starts the MD5 verifier that checks whether a game is a clean dump
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BtnVerifyGame(object sender, RoutedEventArgs e)
-        {
-            if (gameList.Items.Count == 0)
-                return;
-
-            var selectedGame = _gameNames[gameList.SelectedIndex];
-            if (!File.Exists(selectedGame.ValidMd5))
-            {
-                MessageBoxHelper.InfoOK(Properties.Resources.LibraryNoHashes);
-            }
-            else
-            {
-                Application.Current.Windows.OfType<MainWindow>().Single().contentControl.Content =
-                    new VerifyGame(selectedGame.GamePath, selectedGame.ValidMd5);
-            }
-        }
-
-        private void BtnMoreInfo(object sender, RoutedEventArgs e)
-        {
-            string path = string.Empty;
-
-            if (gameList.Items.Count != 0)
-            {
-                var selectedGame = _gameNames[gameList.SelectedIndex];
-
-                // open game compatibility page
-                if (selectedGame != null)
-                {
-                    path = "compatibility/" + Path.GetFileNameWithoutExtension(selectedGame.FileName) + ".htm";
-                }
-            }
-
-            var url = "https://teknogods.github.io/" + path;
-            Debug.WriteLine($"opening {url}");
-            Process.Start(url);
-        }
-
-        private void BtnDownloadMissingIcons(object sender, RoutedEventArgs e)
-        {
-            if (MessageBoxHelper.WarningYesNo(Properties.Resources.LibraryDownloadAllIcons))
-            {
-                try
-                {
-                    var icons = new DownloadWindow("https://github.com/teknogods/TeknoParrotUIThumbnails/archive/master.zip", "TeknoParrot Icons", true);
-                    icons.Closed += (x, x2) =>
-                    {
-                        if (icons.data == null)
-                            return;
-                        using (var memoryStream = new MemoryStream(icons.data))
-                        using (var zip = new ZipArchive(memoryStream, ZipArchiveMode.Read))
-                        {
-                            foreach (var entry in zip.Entries)
-                            {
-                                //remove TeknoParrotUIThumbnails-master/
-                                var name = entry.FullName.Substring(entry.FullName.IndexOf('/') + 1);
-                                if (string.IsNullOrEmpty(name)) continue;
-
-                                if (File.Exists(name))
-                                {
-                                    Debug.WriteLine($"Skipping already existing icon {name}");
-                                    continue;
-                                }
-
-                                // skip readme and folder entries
-                                if (name == "README.md" || name.EndsWith("/"))
-                                    continue;
-
-                                Debug.WriteLine($"Extracting {name}");
-
-                                try
-                                {
-                                    using (var entryStream = entry.Open())
-                                    using (var dll = File.Create(name))
-                                    {
-                                        entryStream.CopyTo(dll);
-                                    }
-                                }
-                                catch
-                                {
-                                    // ignore..?
-                                }
-                            }
-                        }
-                    };
-                    icons.Show();
-                }
-                catch
-                {
-                    // ignored
-                }
-            }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var win = new Custom.CustomSettings();
-            win.Show();
         }
     }
 }

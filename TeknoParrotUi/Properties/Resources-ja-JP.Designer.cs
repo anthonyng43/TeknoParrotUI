@@ -22,14 +22,14 @@ namespace TeknoParrotUi.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    public class Resources_ja_JP {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal Resources_ja_JP() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace TeknoParrotUi.Properties {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TeknoParrotUi.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TeknoParrotUi.Properties.Resources-ja-JP", typeof(Resources_ja_JP).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,16 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Game.
+        ///   Looks up a localized string similar to By Reaver, NTAuthority, avail and the community.
+        /// </summary>
+        public static string AboutCredits {
+            get {
+                return ResourceManager.GetString("AboutCredits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ゲームを追加する.
         /// </summary>
         public static string AddGame {
             get {
@@ -70,7 +79,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Back.
+        ///   Looks up a localized string similar to 戻る.
         /// </summary>
         public static string Back {
             get {
@@ -79,7 +88,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancel.
+        ///   Looks up a localized string similar to キャンセル.
         /// </summary>
         public static string Cancel {
             get {
@@ -88,7 +97,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete Game.
+        ///   Looks up a localized string similar to ゲーム消す.
         /// </summary>
         public static string DeleteGame {
             get {
@@ -97,20 +106,47 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error.
+        ///   Looks up a localized string similar to Download Cancelled.
         /// </summary>
-        public static string Error {
+        public static string DownloaderCancelled {
             get {
-                return ResourceManager.GetString("Error", resourceCulture);
+                return ResourceManager.GetString("DownloaderCancelled", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Allowed range is 0-8191!.
+        ///   Looks up a localized string similar to Download Complete.
         /// </summary>
-        public static string ErrorAllowedRange {
+        public static string DownloaderComplete {
             get {
-                return ResourceManager.GetString("ErrorAllowedRange", resourceCulture);
+                return ResourceManager.GetString("DownloaderComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloading.
+        /// </summary>
+        public static string DownloaderDownloading {
+            get {
+                return ResourceManager.GetString("DownloaderDownloading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error Downloading.
+        /// </summary>
+        public static string DownloaderError {
+            get {
+                return ResourceManager.GetString("DownloaderError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to エラー.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
             }
         }
         
@@ -164,11 +200,20 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Game location not set! Please set it in Game Settings..
+        ///   Looks up a localized string similar to ゲームの場所が設定されていません！ゲーム設定で設定してください。.
         /// </summary>
         public static string ErrorGamePathNotSet {
             get {
                 return ResourceManager.GetString("ErrorGamePathNotSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Master server is offline..
+        /// </summary>
+        public static string ErrorMasterServerOffline {
+            get {
+                return ResourceManager.GetString("ErrorMasterServerOffline", resourceCulture);
             }
         }
         
@@ -182,7 +227,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Seems like this is first time you are running TeknoParrotUi, please setup a version to play with..
+        ///   Looks up a localized string similar to 初めてTeknoParrotUiを起動されるようですので、エミュレーションの設定をお願いします。.
         /// </summary>
         public static string FirstRun {
             get {
@@ -191,7 +236,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Games:.
+        ///   Looks up a localized string similar to ゲームリスト:.
         /// </summary>
         public static string GameList {
             get {
@@ -200,7 +245,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Game Running.
+        ///   Looks up a localized string similar to ゲーム実行中.
         /// </summary>
         public static string GameRunning {
             get {
@@ -209,7 +254,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Since you force closed the emulator, you should check Task Manager for any processes still running that are related to the emulator or your game..
+        ///   Looks up a localized string similar to エミュレータを強制終了したので、タスクマネージャでエミュレータやゲームに関連するプロセスがまだ実行されていないか確認してください。.
         /// </summary>
         public static string GameRunningCheckTaskMgr {
             get {
@@ -218,7 +263,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Force Quit Game.
+        ///   Looks up a localized string similar to ゲームを強制終了.
         /// </summary>
         public static string GameRunningForceQuit {
             get {
@@ -227,7 +272,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Game Stopped.
+        ///   Looks up a localized string similar to ゲーム止まった.
         /// </summary>
         public static string GameRunningGameStopped {
             get {
@@ -236,7 +281,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Game Executable:.
+        ///   Looks up a localized string similar to ゲーム実行ファイル:.
         /// </summary>
         public static string GameSettingsGameExecutable {
             get {
@@ -245,7 +290,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Game executable.
+        ///   Looks up a localized string similar to ゲーム実行ファイル.
         /// </summary>
         public static string GameSettingsGameExecutableFilter {
             get {
@@ -254,7 +299,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please select game executable.
+        ///   Looks up a localized string similar to ゲームの実行ファイルを選択してください。.
         /// </summary>
         public static string GameSettingsSelectGameExecutable {
             get {
@@ -263,7 +308,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Information.
+        ///   Looks up a localized string similar to インフォメーション.
         /// </summary>
         public static string Information {
             get {
@@ -302,7 +347,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cannot find game exe at: {0}.
+        ///   Looks up a localized string similar to ゲームの場所: {0}　が見つかりません.
         /// </summary>
         public static string LibraryCantFindGame {
             get {
@@ -311,9 +356,9 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cannot find {0}!
-        ///It is probably removed by your anti-virus software.
-        ///Please re-extract TeknoParrot..
+        ///   Looks up a localized string similar to {0}!が見つかりません！
+        ///おそらくアンチウイルスソフトによって削除されたのでしょう。
+        ///TeknoParrotを再度解凍してください。.
         /// </summary>
         public static string LibraryCantFindLoader {
             get {
@@ -322,7 +367,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CONTROLLER SETUP.
+        ///   Looks up a localized string similar to コントロールセッティング.
         /// </summary>
         public static string LibraryControllerSetup {
             get {
@@ -358,7 +403,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Second game location not set! Please set it in Game Settings..
+        ///   Looks up a localized string similar to ゲーム場所２が設定されていません！ゲーム設定で設定してください。.
         /// </summary>
         public static string LibraryGameLocation2NotSet {
             get {
@@ -367,7 +412,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Third game location not set! Please set it in Game Settings..
+        ///   Looks up a localized string similar to ゲーム場所３が設定されていません！ゲーム設定で設定してください。.
         /// </summary>
         public static string LibraryGameLocation3NotSet {
             get {
@@ -376,7 +421,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Game location not set! Please set it in Game Settings..
+        ///   Looks up a localized string similar to ゲーム場所１が設定されていません！ゲーム設定で設定してください。.
         /// </summary>
         public static string LibraryGameLocationNotSet {
             get {
@@ -385,7 +430,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GAME SETTINGS.
+        ///   Looks up a localized string similar to ゲームセッティング.
         /// </summary>
         public static string LibraryGameSettings {
             get {
@@ -414,11 +459,20 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LAUNCH GAME.
+        ///   Looks up a localized string similar to ゲーム起動.
         /// </summary>
         public static string LibraryLaunchGame {
             get {
                 return ResourceManager.GetString("LibraryLaunchGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OPEN WIKI.
+        /// </summary>
+        public static string LibraryMoreInfo {
+            get {
+                return ResourceManager.GetString("LibraryMoreInfo", resourceCulture);
             }
         }
         
@@ -432,7 +486,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You have no Wangan version set up. Do you want to set one now?.
+        ///   Looks up a localized string similar to あなたはゲームを設定していません。今すぐ追加しますか？.
         /// </summary>
         public static string LibraryNoGames {
             get {
@@ -459,6 +513,33 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Test Menu.
+        /// </summary>
+        public static string LibraryTestMenu {
+            get {
+                return ResourceManager.GetString("LibraryTestMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle test mode..
+        /// </summary>
+        public static string LibraryToggleTestMode {
+            get {
+                return ResourceManager.GetString("LibraryToggleTestMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VERIFY GAME.
+        /// </summary>
+        public static string LibraryVerifyGame {
+            get {
+                return ResourceManager.GetString("LibraryVerifyGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
         public static string MainAbout {
@@ -468,7 +549,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure?.
+        ///   Looks up a localized string similar to 確認しますか？.
         /// </summary>
         public static string MainAreYouSure {
             get {
@@ -477,16 +558,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PA Tool.
-        /// </summary>
-        public static string MainDwPaTool {
-            get {
-                return ResourceManager.GetString("MainDwPaTool", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Library.
+        ///   Looks up a localized string similar to ライブラリ.
         /// </summary>
         public static string MainLibrary {
             get {
@@ -495,7 +567,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quit.
+        ///   Looks up a localized string similar to 辞める.
         /// </summary>
         public static string MainQuit {
             get {
@@ -504,7 +576,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Settings.
+        ///   Looks up a localized string similar to セッティング.
         /// </summary>
         public static string MainSettings {
             get {
@@ -513,7 +585,16 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No.
+        ///   Looks up a localized string similar to TeknoParrot Online.
+        /// </summary>
+        public static string MainTPOnline {
+            get {
+                return ResourceManager.GetString("MainTPOnline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to いいえ.
         /// </summary>
         public static string No {
             get {
@@ -522,7 +603,70 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Check for updates on launch.
+        ///   Looks up a localized string similar to Become A Patron!.
+        /// </summary>
+        public static string PatreonBecomeAPatron {
+            get {
+                return ResourceManager.GetString("PatreonBecomeAPatron", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DeRegister Patreon Key.
+        /// </summary>
+        public static string PatreonDeregisterKey {
+            get {
+                return ResourceManager.GetString("PatreonDeregisterKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error from other process:.
+        /// </summary>
+        public static string PatreonError {
+            get {
+                return ResourceManager.GetString("PatreonError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Patreon Key must not be blank.
+        /// </summary>
+        public static string PatreonMustNotBeBlank {
+            get {
+                return ResourceManager.GetString("PatreonMustNotBeBlank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register Patreon Key.
+        /// </summary>
+        public static string PatreonRegisterKey {
+            get {
+                return ResourceManager.GetString("PatreonRegisterKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status:.
+        /// </summary>
+        public static string PatreonStatus {
+            get {
+                return ResourceManager.GetString("PatreonStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to vkcpage jp.
+        /// </summary>
+        public static string SettingsBtnVKCPage {
+            get {
+                return ResourceManager.GetString("SettingsBtnVKCPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check for updates on launch(未使用).
         /// </summary>
         public static string SettingsCheckForUpdates {
             get {
@@ -531,7 +675,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Confirmation prompt on exit.
+        ///   Looks up a localized string similar to 終了時の確認プロンプト.
         /// </summary>
         public static string SettingsConfirmExit {
             get {
@@ -540,7 +684,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Direct Input Wheel Settings.
+        ///   Looks up a localized string similar to ダイレクト入力ホイールの設定.
         /// </summary>
         public static string SettingsDInputWheel {
             get {
@@ -549,7 +693,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Download Force Feedback Plugin.
+        ///   Looks up a localized string similar to Force Feedback プラグインをダウンロード.
         /// </summary>
         public static string SettingsDownloadFFB {
             get {
@@ -567,7 +711,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Exit Game Key.
+        ///   Looks up a localized string similar to ゲーム終了キー.
         /// </summary>
         public static string SettingsExitGameKey {
             get {
@@ -576,7 +720,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Full Axis Brake.
+        ///   Looks up a localized string similar to 全軸ブレーキ.
         /// </summary>
         public static string SettingsFullBrake {
             get {
@@ -585,7 +729,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Full Axis Gas.
+        ///   Looks up a localized string similar to 全軸アクセール.
         /// </summary>
         public static string SettingsFullGas {
             get {
@@ -594,7 +738,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Global Hot keys.
+        ///   Looks up a localized string similar to グローバルホットキー.
         /// </summary>
         public static string SettingsGlobalHotkeys {
             get {
@@ -603,7 +747,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disable Hardware Acceleration in UI.
+        ///   Looks up a localized string similar to UIでハードウェアアクセラレーションを無効にする.
         /// </summary>
         public static string SettingsHardwareAccel {
             get {
@@ -612,7 +756,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hide console windows.
+        ///   Looks up a localized string similar to コンソールのウィンドウを隠す.
         /// </summary>
         public static string SettingsHideConsoleWindows {
             get {
@@ -621,7 +765,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disable Vanguard Warning.
+        ///   Looks up a localized string similar to Disable Vanguard Warning(未使用).
         /// </summary>
         public static string SettingsHideVanguardWarning {
             get {
@@ -630,7 +774,16 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Load last game played on launch.
+        ///   Looks up a localized string similar to Joystick Gun Settings(未使用).
+        /// </summary>
+        public static string SettingsJoystickGunSettings {
+            get {
+                return ResourceManager.GetString("SettingsJoystickGunSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Load last game played on launch(未使用).
         /// </summary>
         public static string SettingsLoadLastPlayed {
             get {
@@ -639,7 +792,16 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pause Game Key.
+        ///   Looks up a localized string similar to Player 2 Gun Joystick Sensitivity(未使用).
+        /// </summary>
+        public static string SettingsP2GunJoystickSensitivity {
+            get {
+                return ResourceManager.GetString("SettingsP2GunJoystickSensitivity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ゲームポーズキー.
         /// </summary>
         public static string SettingsPauseGameKey {
             get {
@@ -648,7 +810,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reverse Axis Brake.
+        ///   Looks up a localized string similar to 逆軸ブレーキ.
         /// </summary>
         public static string SettingsReverseBrake {
             get {
@@ -657,7 +819,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reverse Axis Gas.
+        ///   Looks up a localized string similar to 逆軸アクセール.
         /// </summary>
         public static string SettingsReverseGas {
             get {
@@ -666,7 +828,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save settings.
+        ///   Looks up a localized string similar to セーブ.
         /// </summary>
         public static string SettingsSaveSettings {
             get {
@@ -675,7 +837,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show current game playing on Discord.
+        ///   Looks up a localized string similar to Discordで現在プレー中のゲームを表示する.
         /// </summary>
         public static string SettingsShowGameOnDiscord {
             get {
@@ -684,7 +846,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable sTo0z Zone.
+        ///   Looks up a localized string similar to デッドゾーンを有効.
         /// </summary>
         public static string SettingsSto0zZone {
             get {
@@ -693,7 +855,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Title colour.
+        ///   Looks up a localized string similar to Title colour(未使用).
         /// </summary>
         public static string SettingsUIColour {
             get {
@@ -702,7 +864,16 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark Mode.
+        ///   Looks up a localized string similar to UI Customization (Patreon)(未使用).
+        /// </summary>
+        public static string SettingsUICustomization {
+            get {
+                return ResourceManager.GetString("SettingsUICustomization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ダークモード.
         /// </summary>
         public static string SettingsUIDarkMode {
             get {
@@ -711,7 +882,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use a different theme on holidays.
+        ///   Looks up a localized string similar to Use a different theme on holidays(未使用).
         /// </summary>
         public static string SettingsUIHolidayThemes {
             get {
@@ -720,11 +891,74 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Successfully saved {0}!.
+        ///   Looks up a localized string similar to {0} セーブしました!.
         /// </summary>
         public static string SuccessfullySaved {
             get {
                 return ResourceManager.GetString("SuccessfullySaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Lobby and Launch Game.
+        /// </summary>
+        public static string TPOCreateLobby {
+            get {
+                return ResourceManager.GetString("TPOCreateLobby", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter by game:.
+        /// </summary>
+        public static string TPOFilter {
+            get {
+                return ResourceManager.GetString("TPOFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game.
+        /// </summary>
+        public static string TPOGame {
+            get {
+                return ResourceManager.GetString("TPOGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Join Lobby and Launch Game.
+        /// </summary>
+        public static string TPOJoinLobby {
+            get {
+                return ResourceManager.GetString("TPOJoinLobby", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lobby Name.
+        /// </summary>
+        public static string TPOLobbyName {
+            get {
+                return ResourceManager.GetString("TPOLobbyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Players.
+        /// </summary>
+        public static string TPOPlayers {
+            get {
+                return ResourceManager.GetString("TPOPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh Lobbies.
+        /// </summary>
+        public static string TPORefresh {
+            get {
+                return ResourceManager.GetString("TPORefresh", resourceCulture);
             }
         }
         
@@ -765,15 +999,6 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sucessfully updated {0} to {1}.
-        /// </summary>
-        public static string UpdaterSuccess {
-            get {
-                return ResourceManager.GetString("UpdaterSuccess", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Update.
         /// </summary>
         public static string UpdaterUpdate {
@@ -783,7 +1008,83 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Warning.
+        ///   Looks up a localized string similar to TeknoParrot has detected that you have the anti-cheat system for VALORANT currently running, Riot Vanguard. Vanguard interferes with how TeknoParrot loads games and is known to cause issues! 
+        ///
+        ///It is highly recommended that you right click on the Vanguard icon in your system tray (next to the clock), and click &quot;Exit Vanguard&quot;. This will mean you cannot play VALORANT until you restart your computer, but TeknoParrot games should now launch properly.
+        ///
+        ///Click &quot;OK&quot; to continue loading TeknoParrot..
+        /// </summary>
+        public static string VanguardDetected {
+            get {
+                return ResourceManager.GetString("VanguardDetected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verification Cancelled..
+        /// </summary>
+        public static string VerifyCancelled {
+            get {
+                return ResourceManager.GetString("VerifyCancelled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verifying Game Integrity....
+        /// </summary>
+        public static string VerifyChecking {
+            get {
+                return ResourceManager.GetString("VerifyChecking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game files invalid.
+        /// </summary>
+        public static string VerifyFilesInvalid {
+            get {
+                return ResourceManager.GetString("VerifyFilesInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your game appears to have invalid files. This could be due to a bad download, bad dump, virus infection, or you have modifications installed like resolution and english patches..
+        /// </summary>
+        public static string VerifyFilesInvalidExplain {
+            get {
+                return ResourceManager.GetString("VerifyFilesInvalidExplain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game files valid.
+        /// </summary>
+        public static string VerifyFilesValid {
+            get {
+                return ResourceManager.GetString("VerifyFilesValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid:.
+        /// </summary>
+        public static string VerifyInvalid {
+            get {
+                return ResourceManager.GetString("VerifyInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valid:.
+        /// </summary>
+        public static string VerifyValid {
+            get {
+                return ResourceManager.GetString("VerifyValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 警告.
         /// </summary>
         public static string Warning {
             get {
@@ -792,7 +1093,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yes.
+        ///   Looks up a localized string similar to はい.
         /// </summary>
         public static string Yes {
             get {

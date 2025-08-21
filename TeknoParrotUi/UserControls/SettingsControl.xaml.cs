@@ -32,7 +32,6 @@ namespace TeknoParrotUi.UserControls
             ChkSaveLastPlayed.IsChecked = Lazydata.ParrotData.SaveLastPlayed;
             ChkUseDiscordRPC.IsChecked = Lazydata.ParrotData.UseDiscordRPC;
             ChkConfirmExit.IsChecked = Lazydata.ParrotData.ConfirmExit;
-            ChkCheckForUpdates.IsChecked = Lazydata.ParrotData.CheckForUpdates;
             ChkDownloadIcons.IsChecked = Lazydata.ParrotData.DownloadIcons;
             ChkSilentMode.IsChecked = Lazydata.ParrotData.SilentMode;
             ChkUiDisableHardwareAcceleration.IsChecked = Lazydata.ParrotData.UiDisableHardwareAcceleration;
@@ -47,15 +46,7 @@ namespace TeknoParrotUi.UserControls
             UiColour.SelectedItem = Lazydata.ParrotData.UiColour;
             ChkUiDarkMode.IsChecked = Lazydata.ParrotData.UiDarkMode;
             ChkUiHolidayThemes.IsChecked = Lazydata.ParrotData.UiHolidayThemes;
-
-            if (App.IsPatreon())
-            {
-                UiPatreon.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                UiPatreon.Visibility = Visibility.Collapsed;
-            }
+            ChkHideVanguardWarning.IsChecked = Lazydata.ParrotData.HideVanguardWarning;
 
             _contentControl = control;
             _library = library;
@@ -114,6 +105,9 @@ namespace TeknoParrotUi.UserControls
                 Lazydata.ParrotData.UiColour = UiColour.SelectedItem.ToString();
                 Lazydata.ParrotData.UiDarkMode = ChkUiDarkMode.IsChecked.Value;
                 Lazydata.ParrotData.UiHolidayThemes = ChkUiHolidayThemes.IsChecked.Value;
+
+                if (ChkHideVanguardWarning.IsChecked.HasValue)
+                    Lazydata.ParrotData.HideVanguardWarning = ChkHideVanguardWarning.IsChecked.Value;
 
                 DiscordRPC.StartOrShutdown();
 

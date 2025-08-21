@@ -23,7 +23,7 @@ namespace TeknoParrotUi
     public partial class App
     {
         private GameProfile _profile;
-        private bool _emuOnly, _test, _tpOnline, _startMin;
+        private bool _emuOnly, _test, _startMin;
         private bool _profileLaunch;
 
         public static bool Is64Bit()
@@ -48,10 +48,6 @@ namespace TeknoParrotUi
         private bool HandleArgs(string[] args)
         {
             _test = args.Any(x => x == "--test");
-            if (args.Contains("--tponline"))
-            {
-                _tpOnline = true;
-            }
 
             if (args.Contains("--startMinimized"))
             {
@@ -122,26 +118,20 @@ namespace TeknoParrotUi
 
         public static void LoadTheme(string colourname, bool darkmode, bool holiday)
         {
-            // if user isn't patreon, use defaults
-            if (!IsPatreon())
+            if (holiday)
             {
-                colourname = "lightblue";
+                var now = DateTime.Now;
 
-                if (holiday)
+                if (now.Month == 10 && now.Day == 31)
                 {
-                    var now = DateTime.Now;
+                    // halloween - orange title
+                    colourname = "orange";
+                }
 
-                    if (now.Month == 10 && now.Day == 31)
-                    {
-                        // halloween - orange title
-                        colourname = "orange";
-                    }
-
-                    if (now.Month == 12 && now.Day == 25)
-                    {
-                        // christmas - red title
-                        colourname = "red";
-                    } 
+                if (now.Month == 12 && now.Day == 25)
+                {
+                    // christmas - red title
+                    colourname = "red";
                 }
             }
 
@@ -152,13 +142,7 @@ namespace TeknoParrotUi
             if (colour != null)
             {
                 ph.ReplacePrimaryColor(colour);
-            }     
-        }
-
-        public static bool IsPatreon()
-        {
-            var tp = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"SOFTWARE\TeknoGods\TeknoParrot");
-            return (tp != null && tp.GetValue("PatreonSerialKey") != null);
+            }
         }
 
         private void Application_Startup(object sender, StartupEventArgs e)
@@ -170,35 +154,32 @@ namespace TeknoParrotUi
                 // give us the exception in english
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
                 var exceptiontext = (ex.ExceptionObject as Exception).ToString();
-                MessageBoxHelper.ErrorOK($"TeknoParrotUI ran into an exception!\nPlease send exception.txt to the #teknoparrothelp channel on Discord or create a Github issue!\n{exceptiontext}");
+                MessageBoxHelper.ErrorOK($"TeknoParrotUi ran into an exception!\n{exceptiontext}");
                 File.WriteAllText("exception.txt", exceptiontext);
                 Environment.Exit(1);
             });
             // Localization testing without changing system language.
             // Language code list: https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-lcid/70feba9f-294e-491e-b6eb-56532684c37f
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-FR");
+            /*if (System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName == "ja")
+            {
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("ja-JP");
+            }*/
 
             //this'll sort dumb stupid tp online gay shit
             HandleArgs(e.Args);
-            if (!_tpOnline)
-            {
-                if (Process.GetProcessesByName("TeknoParrotUi").Where((p) => p.Id != Process.GetCurrentProcess().Id)
+            JoystickHelper.DeSerialize();
+            if (Process.GetProcessesByName("TeknoParrotUi").Where((p) => p.Id != Process.GetCurrentProcess().Id)
                     .Count() > 0)
+            {
+                if (MessageBoxHelper.ErrorYesNo(TeknoParrotUi.Properties.Resources.ErrorAlreadyRunning))
                 {
-                    if (MessageBoxHelper.ErrorYesNo(TeknoParrotUi.Properties.Resources.ErrorAlreadyRunning))
-                    {
-                        TerminateProcesses();
-                    }
-                    else
-                    {
-                        Current.Shutdown(0);
-                        return;
-                    }
+                    TerminateProcesses();
                 }
-
-                if (Process.GetProcessesByName("vgc").Where((p) => p.Id != Process.GetCurrentProcess().Id).Count() > 0 || Process.GetProcessesByName("vgtray").Where((p) => p.Id != Process.GetCurrentProcess().Id).Count() > 0)
+                else
                 {
-                    MessageBoxHelper.WarningOK(TeknoParrotUi.Properties.Resources.VanguardDetected);
+                    Current.Shutdown(0);
+                    return;
                 }
             }
 
@@ -238,8 +219,6 @@ namespace TeknoParrotUi
                     // ignore..
                 }
             }
-
-            JoystickHelper.DeSerialize();
 
             Current.Resources.MergedDictionaries.Clear();
             Current.Resources.MergedDictionaries.Add(new ResourceDictionary()

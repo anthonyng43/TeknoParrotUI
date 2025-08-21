@@ -160,7 +160,7 @@ namespace TeknoParrotUi.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TeknoParrotUI näyttää olevan jo käynnissä, haluatko sulkea sen?.
+        ///   Looks up a localized string similar to TeknoParrotUi näyttää olevan jo käynnissä, haluatko sulkea sen?.
         /// </summary>
         public static string ErrorAlreadyRunning {
             get {

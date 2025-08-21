@@ -9,6 +9,9 @@ using TeknoParrotUi.Helpers;
 using TeknoParrotUi.Views;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
+using System.Net.NetworkInformation;
+using System.Data;
+using System.Collections;
 
 namespace TeknoParrotUi.UserControls
 {
@@ -21,13 +24,12 @@ namespace TeknoParrotUi.UserControls
         {
             InitializeComponent();
         }
-        
+
         private GameProfile _gameProfile;
         private ListBoxItem _comboItem;
         private ContentControl _contentControl;
         private Library _library;
         private InputApi _inputApi = InputApi.DirectInput;
-        private bool SubmissionNameBad;
 
         public void LoadNewSettings(GameProfile gameProfile, ListBoxItem comboItem, ContentControl contentControl, Library library)
         {
@@ -64,6 +66,45 @@ namespace TeknoParrotUi.UserControls
             {
                 GameExecutable2Text.Visibility = Visibility.Collapsed;
                 GamePathBox2.Visibility = Visibility.Collapsed;
+            }
+
+            // Clear All Previous IP to prevent duplicate print
+            _gameProfile.ConfigValues.Find(cv => cv.FieldName == "NetworkAdapterIP").FieldOptions.Clear();
+
+            // Get Softether VPN IP for VS stuff
+            if (NetworkInterface.GetIsNetworkAvailable())
+            {
+                NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
+                foreach (NetworkInterface Interface in interfaces)
+                {
+                    if (Interface.Description.Contains("VPN Client Adapter - VPN")
+                        && Interface.OperationalStatus == OperationalStatus.Up)
+                    {
+                        var vpn = NetworkInterface.GetAllNetworkInterfaces().First(x => x.Name == "VPN - VPN Client");
+                        var ips = vpn.GetIPProperties().UnicastAddresses.First(x => x.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork).Address.ToString();
+                        bool nullornot = string.IsNullOrWhiteSpace(ips);
+                        if (nullornot == false)
+                        {
+                            _gameProfile.ConfigValues.Find(cv => cv.FieldName == "NetworkAdapterIP").FieldOptions.Add(ips);
+                            
+                        }
+                    }
+                }
+            }
+
+            // Get Local Network IP
+            foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if (ni.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 || ni.NetworkInterfaceType == NetworkInterfaceType.Ethernet)
+                {
+                    foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
+                    {
+                        if (ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                        {
+                            _gameProfile.ConfigValues.Find(cv => cv.FieldName == "NetworkAdapterIP").FieldOptions.Add(ip.Address.ToString());
+                        }
+                    }
+                }
             }
         }
 
@@ -107,19 +148,6 @@ namespace TeknoParrotUi.UserControls
             }
         }
 
-        public static string Filter(string input, string[] badWords)
-        {
-            var re = new Regex(
-                @"\b("
-                + string.Join("|", badWords.Select(word =>
-                    string.Join(@"\s*", word.ToCharArray())))
-                + @")\b", RegexOptions.IgnoreCase);
-            return re.Replace(input, match =>
-            {
-                return new string('*', match.Length);
-            });
-        }
-
         private void BtnSaveSettings(object sender, RoutedEventArgs e)
         {
             string inputApiString = _gameProfile.ConfigValues.Find(cv => cv.FieldName == "Input API")?.FieldValue;
@@ -137,31 +165,13 @@ namespace TeknoParrotUi.UserControls
                     t.BindName = t.BindNameRi;
             }
 
-            string NameString = _gameProfile.ConfigValues.Find(cv => cv.FieldName == "Submission Name")?.FieldValue;
-
-            if (NameString != null)
+            string BorderlessValue = _gameProfile.ConfigValues.Find(cv => cv.FieldName == "Borderless Fullscreen")?.FieldValue;
+            if (BorderlessValue == "1")
             {
-                if (_gameProfile.ConfigValues.Any(x => x.FieldName == "Enable Submission (Patreon Only)" && x.FieldValue == "1"))
-                {
-                    bool CheckName = String.IsNullOrWhiteSpace(_gameProfile.ConfigValues.Find(cv => cv.FieldName == "Submission Name").FieldValue);
-                    if (CheckName)
-                    {
-                        SubmissionNameBad = true;
-                        MessageBox.Show("Score Submission requires a name!");
-                    }
-                    else
-                        SubmissionNameBad = false;
-                }
-                else
-                    SubmissionNameBad = false;
-
-                string[] badWords = new[] { "fuck", "cunt", "fuckwit", "fag", "dick", "shit", "cock", "pussy", "ass", "asshole", "bitch", "homo", "faggot", "@ss", "f@g", "fucker", "fucking", "fuk", "fuckin", "fucken", "teknoparrot", "tp", "arse", "@rse", "@$$", "bastard", "crap", "effing", "god", "hell", "motherfucker", "whore", "twat", "gay", "g@y", "ash0le", "assh0le", "a$$hol", "anal", };
-
-                NameString = Filter(NameString, badWords);
-                _gameProfile.ConfigValues.Find(cv => cv.FieldName == "Submission Name").FieldValue = NameString;
+                _gameProfile.ConfigValues.Find(cv => cv.FieldName == "Windowed").FieldValue = "0";
             }
 
-            if (!SubmissionNameBad)
+            if (_gameProfile.EmulationProfile == EmulationProfile.NamcoWmmt5)
             {
                 JoystickHelper.SerializeGameProfile(_gameProfile);
                 _gameProfile.GamePath = GamePathBox.Text;

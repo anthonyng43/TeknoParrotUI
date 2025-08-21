@@ -117,23 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutCredits" xml:space="preserve">
+    <value>By Reaver, NTAuthority, avail and the community</value>
+  </data>
   <data name="AddGame" xml:space="preserve">
-    <value>Add Game</value>
+    <value>ゲームを追加する</value>
   </data>
   <data name="Back" xml:space="preserve">
-    <value>Back</value>
+    <value>戻る</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>キャンセル</value>
   </data>
   <data name="DeleteGame" xml:space="preserve">
-    <value>Delete Game</value>
+    <value>ゲーム消す</value>
+  </data>
+  <data name="DownloaderCancelled" xml:space="preserve">
+    <value>Download Cancelled</value>
+  </data>
+  <data name="DownloaderComplete" xml:space="preserve">
+    <value>Download Complete</value>
+  </data>
+  <data name="DownloaderDownloading" xml:space="preserve">
+    <value>Downloading</value>
+  </data>
+  <data name="DownloaderError" xml:space="preserve">
+    <value>Error Downloading</value>
   </data>
   <data name="Error" xml:space="preserve">
-    <value>Error</value>
-  </data>
-  <data name="ErrorAllowedRange" xml:space="preserve">
-    <value>Allowed range is 0-8191!</value>
+    <value>エラー</value>
   </data>
   <data name="ErrorAlreadyRunning" xml:space="preserve">
     <value>TeknoParrotUi seems to already be running, want to close it?</value>
@@ -159,40 +171,43 @@
     <comment>{0} = exception</comment>
   </data>
   <data name="ErrorGamePathNotSet" xml:space="preserve">
-    <value>Game location not set! Please set it in Game Settings.</value>
+    <value>ゲームの場所が設定されていません！ゲーム設定で設定してください。</value>
+  </data>
+  <data name="ErrorMasterServerOffline" xml:space="preserve">
+    <value>Master server is offline.</value>
   </data>
   <data name="ErrorOldTeknoParrotDirectory" xml:space="preserve">
     <value>Seems you have extracted me to the directory of old TeknoParrot. Please extract me to a new directory instead!</value>
   </data>
   <data name="FirstRun" xml:space="preserve">
-    <value>Seems like this is first time you are running TeknoParrotUi, please setup a version to play with.</value>
+    <value>初めてTeknoParrotUiを起動されるようですので、エミュレーションの設定をお願いします。</value>
   </data>
   <data name="GameList" xml:space="preserve">
-    <value>Games:</value>
+    <value>ゲームリスト:</value>
   </data>
   <data name="GameRunning" xml:space="preserve">
-    <value>Game Running</value>
+    <value>ゲーム実行中</value>
   </data>
   <data name="GameRunningCheckTaskMgr" xml:space="preserve">
-    <value>Since you force closed the emulator, you should check Task Manager for any processes still running that are related to the emulator or your game.</value>
+    <value>エミュレータを強制終了したので、タスクマネージャでエミュレータやゲームに関連するプロセスがまだ実行されていないか確認してください。</value>
   </data>
   <data name="GameRunningForceQuit" xml:space="preserve">
-    <value>Force Quit Game</value>
+    <value>ゲームを強制終了</value>
   </data>
   <data name="GameRunningGameStopped" xml:space="preserve">
-    <value>Game Stopped</value>
+    <value>ゲーム止まった</value>
   </data>
   <data name="GameSettingsGameExecutable" xml:space="preserve">
-    <value>Game Executable:</value>
+    <value>ゲーム実行ファイル:</value>
   </data>
   <data name="GameSettingsGameExecutableFilter" xml:space="preserve">
-    <value>Game executable</value>
+    <value>ゲーム実行ファイル</value>
   </data>
   <data name="GameSettingsSelectGameExecutable" xml:space="preserve">
-    <value>Please select game executable</value>
+    <value>ゲームの実行ファイルを選択してください。</value>
   </data>
   <data name="Information" xml:space="preserve">
-    <value>Information</value>
+    <value>インフォメーション</value>
   </data>
   <data name="Library64bit" xml:space="preserve">
     <value>This game is 64-bit and cannot run on a 32-bit OS.</value>
@@ -209,17 +224,17 @@ You seem to be using an unofficial {0} file! The game may crash or be unstable. 
     <comment>{0} = idmac file</comment>
   </data>
   <data name="LibraryCantFindGame" xml:space="preserve">
-    <value>Cannot find game exe at: {0}</value>
+    <value>ゲームの場所: {0}　が見つかりません</value>
     <comment>{0} = game filename</comment>
   </data>
   <data name="LibraryCantFindLoader" xml:space="preserve">
-    <value>Cannot find {0}!
-It is probably removed by your anti-virus software.
-Please re-extract TeknoParrot.</value>
+    <value>{0}!が見つかりません！
+おそらくアンチウイルスソフトによって削除されたのでしょう。
+TeknoParrotを再度解凍してください。</value>
     <comment>{0} = filename</comment>
   </data>
   <data name="LibraryControllerSetup" xml:space="preserve">
-    <value>CONTROLLER SETUP</value>
+    <value>コントロールセッティング</value>
   </data>
   <data name="LibraryDownloadAllIcons" xml:space="preserve">
     <value>This will download every missing icon for TeknoParrot. The file is around 50 megabytes. Are you sure you want to continue?</value>
@@ -231,16 +246,16 @@ Please re-extract TeknoParrot.</value>
     <value>Emulator</value>
   </data>
   <data name="LibraryGameLocation2NotSet" xml:space="preserve">
-    <value>Second game location not set! Please set it in Game Settings.</value>
+    <value>ゲーム場所２が設定されていません！ゲーム設定で設定してください。</value>
   </data>
   <data name="LibraryGameLocation3NotSet" xml:space="preserve">
-    <value>Third game location not set! Please set it in Game Settings.</value>
+    <value>ゲーム場所３が設定されていません！ゲーム設定で設定してください。</value>
   </data>
   <data name="LibraryGameLocationNotSet" xml:space="preserve">
-    <value>Game location not set! Please set it in Game Settings.</value>
+    <value>ゲーム場所１が設定されていません！ゲーム設定で設定してください。</value>
   </data>
   <data name="LibraryGameSettings" xml:space="preserve">
-    <value>GAME SETTINGS</value>
+    <value>ゲームセッティング</value>
   </data>
   <data name="LibraryInvalidFiles" xml:space="preserve">
     <value>There are possibly some invalid files in your game directory.
@@ -252,14 +267,17 @@ The following files may need to be removed from the game directory, unless you k
     <value>Click Yes to continue running the game as is.</value>
   </data>
   <data name="LibraryLaunchGame" xml:space="preserve">
-    <value>LAUNCH GAME</value>
+    <value>ゲーム起動</value>
+  </data>
+  <data name="LibraryMoreInfo" xml:space="preserve">
+    <value>OPEN WIKI</value>
   </data>
   <data name="LibraryNeedsAdmin" xml:space="preserve">
     <value>Seems like you are not running TeknoParrotUi as Administrator! The game {0} requires the UI to be running as Administrator to function properly. Continue?</value>
     <comment>{0} = game name</comment>
   </data>
   <data name="LibraryNoGames" xml:space="preserve">
-    <value>You have no Wangan version set up. Do you want to set one now?</value>
+    <value>あなたはゲームを設定していません。今すぐ追加しますか？</value>
   </data>
   <data name="LibraryNoHashes" xml:space="preserve">
     <value>It appears that you are trying to verify a game that doesn't have a clean file hash list yet.</value>
@@ -267,78 +285,144 @@ The following files may need to be removed from the game directory, unless you k
   <data name="LibraryNoInfo" xml:space="preserve">
     <value>No Game Information Available</value>
   </data>
+  <data name="LibraryTestMenu" xml:space="preserve">
+    <value>Test Menu</value>
+  </data>
+  <data name="LibraryToggleTestMode" xml:space="preserve">
+    <value>Toggle test mode.</value>
+  </data>
+  <data name="LibraryVerifyGame" xml:space="preserve">
+    <value>VERIFY GAME</value>
+  </data>
   <data name="MainAbout" xml:space="preserve">
     <value>About</value>
   </data>
   <data name="MainAreYouSure" xml:space="preserve">
-    <value>Are you sure?</value>
+    <value>確認しますか？</value>
   </data>
   <data name="MainLibrary" xml:space="preserve">
-    <value>Library</value>
+    <value>ライブラリ</value>
   </data>
   <data name="MainQuit" xml:space="preserve">
-    <value>Quit</value>
+    <value>辞める</value>
   </data>
   <data name="MainSettings" xml:space="preserve">
-    <value>Settings</value>
+    <value>セッティング</value>
+  </data>
+  <data name="MainTPOnline" xml:space="preserve">
+    <value>TeknoParrot Online</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>No</value>
+    <value>いいえ</value>
   </data>
-  <data name="SettingsCheckForUpdates" xml:space="preserve">
-    <value>Check for updates on launch</value>
+  <data name="PatreonBecomeAPatron" xml:space="preserve">
+    <value>Become A Patron!</value>
+  </data>
+  <data name="PatreonDeregisterKey" xml:space="preserve">
+    <value>DeRegister Patreon Key</value>
+  </data>
+  <data name="PatreonError" xml:space="preserve">
+    <value>Error from other process:</value>
+  </data>
+  <data name="PatreonMustNotBeBlank" xml:space="preserve">
+    <value>The Patreon Key must not be blank</value>
+  </data>
+  <data name="PatreonRegisterKey" xml:space="preserve">
+    <value>Register Patreon Key</value>
+  </data>
+  <data name="PatreonStatus" xml:space="preserve">
+    <value>Status:</value>
+  </data>
+  <data name="SettingsBtnVKCPage" xml:space="preserve">
+    <value>vkcpage jp</value>
   </data>
   <data name="SettingsConfirmExit" xml:space="preserve">
-    <value>Confirmation prompt on exit</value>
+    <value>終了時の確認プロンプト</value>
   </data>
   <data name="SettingsDInputWheel" xml:space="preserve">
-    <value>Direct Input Wheel Settings</value>
+    <value>ダイレクト入力ホイールの設定</value>
   </data>
   <data name="SettingsDownloadFFB" xml:space="preserve">
-    <value>Download Force Feedback Plugin</value>
+    <value>Force Feedback プラグインをダウンロード</value>
   </data>
   <data name="SettingsDownloadIcon" xml:space="preserve">
     <value>Download game icon when selected</value>
   </data>
   <data name="SettingsFullBrake" xml:space="preserve">
-    <value>Full Axis Brake</value>
+    <value>全軸ブレーキ</value>
   </data>
   <data name="SettingsFullGas" xml:space="preserve">
-    <value>Full Axis Gas</value>
+    <value>全軸アクセール</value>
   </data>
   <data name="SettingsHardwareAccel" xml:space="preserve">
-    <value>Disable Hardware Acceleration in UI</value>
+    <value>UIでハードウェアアクセラレーションを無効にする</value>
   </data>
   <data name="SettingsHideConsoleWindows" xml:space="preserve">
-    <value>Hide console windows</value>
+    <value>コンソールのウィンドウを隠す</value>
   </data>
   <data name="SettingsHideVanguardWarning" xml:space="preserve">
-    <value>Disable Vanguard Warning</value>
+    <value>Disable Vanguard Warning(未使用)</value>
+  </data>
+  <data name="SettingsJoystickGunSettings" xml:space="preserve">
+    <value>Joystick Gun Settings(未使用)</value>
   </data>
   <data name="SettingsLoadLastPlayed" xml:space="preserve">
-    <value>Load last game played on launch</value>
+    <value>Load last game played on launch(未使用)</value>
+  </data>
+  <data name="SettingsP2GunJoystickSensitivity" xml:space="preserve">
+    <value>Player 2 Gun Joystick Sensitivity(未使用)</value>
   </data>
   <data name="SettingsReverseBrake" xml:space="preserve">
-    <value>Reverse Axis Brake</value>
+    <value>逆軸ブレーキ</value>
   </data>
   <data name="SettingsReverseGas" xml:space="preserve">
-    <value>Reverse Axis Gas</value>
+    <value>逆軸アクセール</value>
   </data>
   <data name="SettingsSaveSettings" xml:space="preserve">
-    <value>Save settings</value>
+    <value>セーブ</value>
   </data>
   <data name="SettingsShowGameOnDiscord" xml:space="preserve">
-    <value>Show current game playing on Discord</value>
+    <value>Discordで現在プレー中のゲームを表示する</value>
   </data>
   <data name="SettingsSto0zZone" xml:space="preserve">
-    <value>Enable sTo0z Zone</value>
+    <value>デッドゾーンを有効</value>
+  </data>
+  <data name="SettingsUIColour" xml:space="preserve">
+    <value>Title colour(未使用)</value>
+  </data>
+  <data name="SettingsUICustomization" xml:space="preserve">
+    <value>UI Customization (Patreon)(未使用)</value>
   </data>
   <data name="SettingsUIDarkMode" xml:space="preserve">
-    <value>Dark Mode</value>
+    <value>ダークモード</value>
+  </data>
+  <data name="SettingsUIHolidayThemes" xml:space="preserve">
+    <value>Use a different theme on holidays(未使用)</value>
   </data>
   <data name="SuccessfullySaved" xml:space="preserve">
-    <value>Successfully saved {0}!</value>
+    <value>{0} セーブしました!</value>
     <comment>{0} = thing</comment>
+  </data>
+  <data name="TPOCreateLobby" xml:space="preserve">
+    <value>Create Lobby and Launch Game</value>
+  </data>
+  <data name="TPOFilter" xml:space="preserve">
+    <value>Filter by game:</value>
+  </data>
+  <data name="TPOGame" xml:space="preserve">
+    <value>Game</value>
+  </data>
+  <data name="TPOJoinLobby" xml:space="preserve">
+    <value>Join Lobby and Launch Game</value>
+  </data>
+  <data name="TPOLobbyName" xml:space="preserve">
+    <value>Lobby Name</value>
+  </data>
+  <data name="TPOPlayers" xml:space="preserve">
+    <value>Players</value>
+  </data>
+  <data name="TPORefresh" xml:space="preserve">
+    <value>Refresh Lobbies</value>
   </data>
   <data name="UpdaterAvailable" xml:space="preserve">
     <value>There is a new update available.</value>
@@ -352,35 +436,53 @@ The following files may need to be removed from the game directory, unless you k
   <data name="UpdaterRestart" xml:space="preserve">
     <value>Would you like TeknoParrotUi to restart to finish the update? Otherwise, TeknoParrotUi will close.</value>
   </data>
-  <data name="UpdaterSuccess" xml:space="preserve">
-    <value>Sucessfully updated {0} to {1}</value>
-    <comment>{0} = component, {1} = new component version</comment>
-  </data>
   <data name="UpdaterUpdate" xml:space="preserve">
     <value>Update</value>
   </data>
+  <data name="VanguardDetected" xml:space="preserve">
+    <value>TeknoParrot has detected that you have the anti-cheat system for VALORANT currently running, Riot Vanguard. Vanguard interferes with how TeknoParrot loads games and is known to cause issues! 
+
+It is highly recommended that you right click on the Vanguard icon in your system tray (next to the clock), and click "Exit Vanguard". This will mean you cannot play VALORANT until you restart your computer, but TeknoParrot games should now launch properly.
+
+Click "OK" to continue loading TeknoParrot.</value>
+  </data>
+  <data name="VerifyCancelled" xml:space="preserve">
+    <value>Verification Cancelled.</value>
+  </data>
+  <data name="VerifyChecking" xml:space="preserve">
+    <value>Verifying Game Integrity...</value>
+  </data>
+  <data name="VerifyFilesInvalid" xml:space="preserve">
+    <value>Game files invalid</value>
+  </data>
+  <data name="VerifyFilesInvalidExplain" xml:space="preserve">
+    <value>Your game appears to have invalid files. This could be due to a bad download, bad dump, virus infection, or you have modifications installed like resolution and english patches.</value>
+  </data>
+  <data name="VerifyFilesValid" xml:space="preserve">
+    <value>Game files valid</value>
+  </data>
+  <data name="VerifyInvalid" xml:space="preserve">
+    <value>Invalid:</value>
+  </data>
+  <data name="VerifyValid" xml:space="preserve">
+    <value>Valid:</value>
+  </data>
   <data name="Warning" xml:space="preserve">
-    <value>Warning</value>
+    <value>警告</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>はい</value>
   </data>
-  <data name="SettingsGlobalHotkeys" xml:space="preserve">
-    <value>Global Hot keys</value>
-  </data>
-  <data name="SettingsPauseGameKey" xml:space="preserve">
-    <value>Pause Game Key</value>
+  <data name="SettingsCheckForUpdates" xml:space="preserve">
+    <value>Check for updates on launch(未使用)</value>
   </data>
   <data name="SettingsExitGameKey" xml:space="preserve">
-    <value>Exit Game Key</value>
+    <value>ゲーム終了キー</value>
   </data>
-  <data name="SettingsUIColour" xml:space="preserve">
-    <value>Title colour</value>
+  <data name="SettingsGlobalHotkeys" xml:space="preserve">
+    <value>グローバルホットキー</value>
   </data>
-  <data name="MainDwPaTool" xml:space="preserve">
-    <value>PA Tool</value>
-  </data>
-  <data name="SettingsUIHolidayThemes" xml:space="preserve">
-    <value>Use a different theme on holidays</value>
+  <data name="SettingsPauseGameKey" xml:space="preserve">
+    <value>ゲームポーズキー</value>
   </data>
 </root>

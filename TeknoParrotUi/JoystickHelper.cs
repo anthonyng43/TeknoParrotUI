@@ -84,13 +84,28 @@ namespace TeknoParrotUi.Common
                 {
                     profile = (GameProfile)serializer.Deserialize(reader);
                 }
-#if !DEBUG
-                if (profile.DevOnly)
+                /*
+                var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+                foreach (var config in profile.ConfigValues)
                 {
-                    Debug.WriteLine($"Skipping loading dev profile {fileName}");
-                    return null;
+                    if (culture == "ja")
+                    {
+                        if (!string.IsNullOrWhiteSpace(config.FieldNameJp))
+                            config.FieldName = config.FieldNameJp;
+
+                        if (!string.IsNullOrWhiteSpace(config.CategoryNameJp))
+                            config.CategoryName = config.CategoryNameJp;
+                    }
                 }
-#endif
+
+                foreach (var button in profile.JoystickButtons)
+                {
+                    if (culture == "ja")
+                    {
+                        if (!string.IsNullOrWhiteSpace(button.ButtonNameJp))
+                            button.ButtonName = button.ButtonNameJp;
+                    }
+                }*/
 
                 if (profile.Is64Bit && !App.Is64Bit())
                 {
@@ -101,12 +116,6 @@ namespace TeknoParrotUi.Common
                 // migrate stuff in case names get changed, only for UserProfiles
                 if (userProfile)
                 {
-                    if (profile.EmulationProfile == EmulationProfile.FNFDrift)
-                    {
-                        profile.EmulationProfile = EmulationProfile.RawThrillsFNF;
-                        SerializeGameProfile(profile, fileName);
-                    }
-
                     List<FieldInformation> list = profile.ConfigValues.FindAll(x => x.FieldName.Contains("Sensitivity"));
                     List<string> oldVars = new List<string>{ "Low", "Medium Low", "Medium", "Medium High", "High", "Instant" };
                     if (list.Count > 0)
@@ -148,7 +157,6 @@ namespace TeknoParrotUi.Common
                         }
                         SerializeGameProfile(profile, fileName);
                     }
-
                 }
 
                 // Add filename to profile

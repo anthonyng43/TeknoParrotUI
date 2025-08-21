@@ -86,17 +86,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="TeknoParrotUi.UnitTests.cs" />
+    <Compile Include="WanganLoaderUi.UnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TeknoParrotUi.Common\TeknoParrotUi.Common.csproj">
       <Project>{599710ae-ab2b-42fc-9583-5685d6726e0d}</Project>
-      <Name>TeknoParrotUi.Common</Name>
+      <Name>WanganLoaderUI.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\TeknoParrotUi\TeknoParrotUi.csproj">
       <Project>{B495A440-9A88-4092-AC84-A63D87CBF024}</Project>
-      <Name>TeknoParrotUi</Name>
+      <Name>WanganLoaderUI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,32 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <GameProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <GameName>Wangan Midnight Maximum Tune 6</GameName>
+  <GameName>Wangan Midnight Maximum Tune 6 - Terminal Mode</GameName>
   <GamePath />
   <IconName>Icons/WMMT6.png</IconName>
   <ResetHint>false</ResetHint>
   <ConfigValues>
-	<FieldInformation>
-		<CategoryName>General</CategoryName>
-		<FieldName>Resolution</FieldName>
-		<FieldValue>768</FieldValue>
-		<FieldType>Dropdown</FieldType>
-		<FieldMin>0</FieldMin>
-		<FieldMax>0</FieldMax>
-		<FieldOptions>
-			<string>144</string>
-			<string>360</string>
-			<string>480</string>
-			<string>540</string>
-			<string>576</string>
-			<string>720</string>
-			<string>768</string>
-			<string>900</string>
-			<string>1080</string>
-			<string>1440</string>
-		</FieldOptions>
-	</FieldInformation>
     <FieldInformation>
-	  <CategoryName>General</CategoryName>
+      <CategoryName>General</CategoryName>
       <FieldName>Input API</FieldName>
       <FieldValue>DirectInput</FieldValue>
       <FieldType>Dropdown</FieldType>
@@ -37,7 +17,7 @@
         <string>XInput</string>
       </FieldOptions>
     </FieldInformation>
-    <FieldInformation>
+	<FieldInformation>
 	  <CategoryName>General</CategoryName>
       <FieldName>Don't Run MaxiTerminal</FieldName>
       <FieldValue>0</FieldValue>
@@ -47,16 +27,16 @@
       <FieldOptions />
     </FieldInformation>
     <FieldInformation>
-	  <CategoryName>General</CategoryName>
+      <CategoryName>General</CategoryName>
       <FieldName>TerminalMode</FieldName>
-      <FieldValue>0</FieldValue>
+      <FieldValue>1</FieldValue>
       <FieldType>Bool</FieldType>
       <FieldMin>0</FieldMin>
       <FieldMax>0</FieldMax>
       <FieldOptions />
     </FieldInformation>
     <FieldInformation>
-	  <CategoryName>General</CategoryName>
+      <CategoryName>General</CategoryName>
       <FieldName>WhiteScreenFix</FieldName>
       <FieldValue>0</FieldValue>
       <FieldType>Bool</FieldType>
@@ -64,36 +44,9 @@
       <FieldMax>0</FieldMax>
       <FieldOptions />
     </FieldInformation>
-	<FieldInformation>
-	  <CategoryName>General</CategoryName>
-	  <FieldName>Windowed</FieldName>
-	  <FieldValue>0</FieldValue>
-	  <FieldType>Bool</FieldType>
-	  <FieldMin>0</FieldMin>
-	  <FieldMax>0</FieldMax>
-	  <FieldOptions />
-	</FieldInformation>
-	<FieldInformation>
-	  <CategoryName>General</CategoryName>
-	  <FieldName>Borderless Fullscreen</FieldName>
-	  <FieldValue>0</FieldValue>
-	  <FieldType>Bool</FieldType>
-	  <FieldMin>0</FieldMin>
-	  <FieldMax>0</FieldMax>
-	  <FieldOptions />
-	</FieldInformation>
     <FieldInformation>
-	  <CategoryName>General</CategoryName>
-      <FieldName>Auto Scan Banapass</FieldName>
-      <FieldValue>1</FieldValue>
-      <FieldType>Bool</FieldType>
-      <FieldMin>0</FieldMin>
-      <FieldMax>0</FieldMax>
-      <FieldOptions />
-    </FieldInformation>
-	<FieldInformation>
-	  <CategoryName>General</CategoryName>
-      <FieldName>Use custom playlist</FieldName>
+      <CategoryName>General</CategoryName>
+      <FieldName>Windowed</FieldName>
       <FieldValue>0</FieldValue>
       <FieldType>Bool</FieldType>
       <FieldMin>0</FieldMin>
@@ -101,7 +54,16 @@
       <FieldOptions />
     </FieldInformation>
     <FieldInformation>
-	  <CategoryName>General</CategoryName>
+      <CategoryName>General</CategoryName>
+      <FieldName>Auto Scan Banapass</FieldName>
+      <FieldValue>1</FieldValue>
+      <FieldType>Bool</FieldType>
+      <FieldMin>0</FieldMin>
+      <FieldMax>0</FieldMax>
+      <FieldOptions />
+    </FieldInformation>
+    <FieldInformation>
+      <CategoryName>General</CategoryName>
       <FieldName>Use Keyboard/Button For Axis</FieldName>
       <FieldValue>0</FieldValue>
       <FieldType>Bool</FieldType>
@@ -110,7 +72,7 @@
       <FieldOptions />
     </FieldInformation>
     <FieldInformation>
-	  <CategoryName>General</CategoryName>
+      <CategoryName>General</CategoryName>
       <FieldName>Keyboard/Button Axis Wheel Sensitivity</FieldName>
       <FieldValue>20</FieldValue>
       <FieldType>Slider</FieldType>
@@ -119,7 +81,7 @@
       <FieldOptions />
     </FieldInformation>
     <FieldInformation>
-	  <CategoryName>General</CategoryName>
+      <CategoryName>General</CategoryName>
       <FieldName>Keyboard/Button Axis Pedal Sensitivity</FieldName>
       <FieldValue>50</FieldValue>
       <FieldType>Slider</FieldType>
@@ -128,7 +90,7 @@
       <FieldOptions />
     </FieldInformation>
     <FieldInformation>
-	  <CategoryName>General</CategoryName>
+      <CategoryName>General</CategoryName>
       <FieldName>NetworkAdapterIP</FieldName>
       <FieldValue />
       <FieldType>Dropdown</FieldType>
@@ -140,7 +102,6 @@
   <JoystickButtons>
     <JoystickButtons>
       <ButtonName>Test</ButtonName>
-	  <ButtonNameJp>テスートスイッチ</ButtonNameJp>
       <InputMapping>Test</InputMapping>
       <AnalogType>None</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -163,7 +124,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Service</ButtonName>
-	  <ButtonNameJp>サービススイッチ</ButtonNameJp>
       <InputMapping>Service1</InputMapping>
       <AnalogType>None</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -186,7 +146,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Coin</ButtonName>
-	  <ButtonNameJp>コイン</ButtonNameJp>
       <InputMapping>Coin1</InputMapping>
       <AnalogType>None</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -209,7 +168,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Wheel Axis</ButtonName>
-	  <ButtonNameJp>ホイール</ButtonNameJp>
       <InputMapping>Analog0</InputMapping>
       <AnalogType>Wheel</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -232,7 +190,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Wheel Axis Left</ButtonName>
-	  <ButtonNameJp>ホイール左</ButtonNameJp>
       <InputMapping>Analog0</InputMapping>
       <AnalogType>Wheel</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -255,7 +212,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Wheel Axis Right</ButtonName>
-	  <ButtonNameJp>ホイール右</ButtonNameJp>
       <InputMapping>Analog0</InputMapping>
       <AnalogType>Wheel</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -278,7 +234,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Gas</ButtonName>
-	  <ButtonNameJp>アクセール</ButtonNameJp>
       <InputMapping>Analog2</InputMapping>
       <AnalogType>Gas</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -301,7 +256,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Brake</ButtonName>
-	  <ButtonNameJp>ブレーキ</ButtonNameJp>
       <InputMapping>Analog4</InputMapping>
       <AnalogType>Brake</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -324,7 +278,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Test Menu Up</ButtonName>
-	  <ButtonNameJp>セレクトスイッチ上</ButtonNameJp>
       <InputMapping>P1ButtonUp</InputMapping>
       <AnalogType>None</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -347,7 +300,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Test Menu Down</ButtonName>
-	  <ButtonNameJp>セレクトスイッチ下</ButtonNameJp>
       <InputMapping>P1ButtonDown</InputMapping>
       <AnalogType>None</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -370,7 +322,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Enter Switch</ButtonName>
-	  <ButtonNameJp>エンタースイッチ</ButtonNameJp>
       <InputMapping>P1Button1</InputMapping>
       <AnalogType>None</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -393,7 +344,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Gear Shift 1</ButtonName>
-	  <ButtonNameJp>シフト 1</ButtonNameJp>
       <InputMapping>Wmmt5GearChange1</InputMapping>
       <AnalogType>None</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -416,7 +366,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Gear Shift 2</ButtonName>
-	  <ButtonNameJp>シフト 2</ButtonNameJp>
       <InputMapping>Wmmt5GearChange2</InputMapping>
       <AnalogType>None</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -439,7 +388,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Gear Shift 3</ButtonName>
-	  <ButtonNameJp>シフト 3</ButtonNameJp>
       <InputMapping>Wmmt5GearChange3</InputMapping>
       <AnalogType>None</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -462,7 +410,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Gear Shift 4</ButtonName>
-	  <ButtonNameJp>シフト 4</ButtonNameJp>
       <InputMapping>Wmmt5GearChange4</InputMapping>
       <AnalogType>None</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -485,7 +432,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Gear Shift 5</ButtonName>
-	  <ButtonNameJp>シフト 5</ButtonNameJp>
       <InputMapping>Wmmt5GearChange5</InputMapping>
       <AnalogType>None</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -508,7 +454,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Gear Shift 6</ButtonName>
-	  <ButtonNameJp>シフト 6</ButtonNameJp>
       <InputMapping>Wmmt5GearChange6</InputMapping>
       <AnalogType>None</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -531,7 +476,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Gear Shift Up</ButtonName>
-	  <ButtonNameJp>シフトアップ</ButtonNameJp>
       <InputMapping>Wmmt5GearChangeUp</InputMapping>
       <AnalogType>None</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -554,7 +498,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Gear Shift Down</ButtonName>
-	  <ButtonNameJp>シフトダウン</ButtonNameJp>
       <InputMapping>Wmmt5GearChangeDown</InputMapping>
       <AnalogType>None</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -577,7 +520,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Perspective Switch Button</ButtonName>
-	  <ButtonNameJp>視点切替ボダン</ButtonNameJp>
       <InputMapping>ExtensionOne2</InputMapping>
       <AnalogType>None</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -600,7 +542,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Interuption Switch Button</ButtonName>
-	  <ButtonNameJp>乱入切替ボダン</ButtonNameJp>
       <InputMapping>ExtensionOne1</InputMapping>
       <AnalogType>None</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>
@@ -623,7 +564,6 @@
     </JoystickButtons>
     <JoystickButtons>
       <ButtonName>Tap Banapass</ButtonName>
-	  <ButtonNameJp>バナパスポートボタン</ButtonNameJp>
       <InputMapping>WmmtTapBanapass</InputMapping>
       <AnalogType>None</AnalogType>
       <HideWithDirectInput>false</HideWithDirectInput>

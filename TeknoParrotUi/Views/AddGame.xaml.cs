@@ -39,17 +39,12 @@ namespace TeknoParrotUi.Views
 
             foreach (var gameProfile in GameProfileLoader.GameProfiles)
             {
-                // third-party emulators
-                var thirdparty = gameProfile.EmulatorType == EmulatorType.SegaTools;
-
                 // check the existing user profiles
                 var existing = GameProfileLoader.UserProfiles.FirstOrDefault((profile) => profile.GameName == gameProfile.GameName) != null;
 
                 var item = new ListBoxItem
                 {
                     Content = gameProfile.GameName +
-                                (gameProfile.Patreon ? " (Patreon)" : "") +
-                                (thirdparty ? $" (Third-Party - {gameProfile.EmulatorType})" : "") +
                                 (existing ? " (added)" : ""),
                     Tag = gameProfile
                 };
@@ -58,13 +53,7 @@ namespace TeknoParrotUi.Views
                 if (existing)
                     item.Foreground = Brushes.Green;
 
-                var genreItem = (ComboBoxItem)GenreBox.SelectedValue;
-                var genreContent = (string)genreItem.Content;
-
-                if (genreContent == "All")
-                    stockGameList.Items.Add(item);
-                else if (gameProfile.GameGenre == genreContent)
-                    stockGameList.Items.Add(item);
+                stockGameList.Items.Add(item);
             }
 
             if (stockGameList.SelectedIndex < 0)

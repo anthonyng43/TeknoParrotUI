@@ -151,7 +151,7 @@
     <value>Sallittu arvon väli on 0-8191!</value>
   </data>
   <data name="ErrorAlreadyRunning" xml:space="preserve">
-    <value>TeknoParrotUI näyttää olevan jo käynnissä, haluatko sulkea sen?</value>
+    <value>TeknoParrotUi näyttää olevan jo käynnissä, haluatko sulkea sen?</value>
   </data>
   <data name="ErrorCannotParseGUID" xml:space="preserve">
     <value>En voi parsia GUID arvoa: {0}. Tarkista että data on vain numeroita.</value>

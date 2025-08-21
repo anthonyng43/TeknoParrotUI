@@ -39,11 +39,7 @@
                     <Button Content="{x:Static p:Resources.MainLibrary}" Margin="0,0,0,10"  Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}" CommandParameter="{x:Static Dock.Left}" Click="BtnLibrary"/>
                     <Button Content="{x:Static p:Resources.AddGame}" Margin="0,0,0,10" Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}" CommandParameter="{x:Static Dock.Left}" Click="BtnAddGame"/>
                     <Button Content="{x:Static p:Resources.MainSettings}" Margin="0,0,0,10" Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}" CommandParameter="{x:Static Dock.Left}" Click="BtnSettings" />
-                    <Button Content="{x:Static p:Resources.MainTPOnline}" Margin="0,0,0,10" Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}" CommandParameter="{x:Static Dock.Left}" Click="BtnTPOnline" />
-                    <Button Content="Mods" Margin="0,0,0,10" Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}" CommandParameter="{x:Static Dock.Left}" Click="BtnDebug" />
-                    <Button x:Name="updateButton" Content="Install Updates" Visibility="Hidden" Margin="0,0,0,10" Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}" CommandParameter="{x:Static Dock.Left}" Click="Button_Click_1" Background="Lime" BorderBrush="Lime" />
-                    <Button Content="Patreon" Margin="0,0,0,10" Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}" CommandParameter="{x:Static Dock.Left}" Click="BtnPatreon" />
-                    <Button Content="{x:Static p:Resources.MainAbout}" Margin="0,0,0,170" Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}" CommandParameter="{x:Static Dock.Left}" Click="BtnAbout"/>
+                    <Button Content="{x:Static p:Resources.MainDwPaTool}" Margin="0,0,0,10" Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}" CommandParameter="{x:Static Dock.Left}" Click="BtnDwPaTool" />
                     <Button Content="{x:Static p:Resources.MainQuit}" Margin="0,0,0,10" Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}" CommandParameter="{x:Static Dock.Left}" Click="BtnQuit"/>
                 </StackPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
@@ -62,9 +58,9 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="377*" />
+                            <ColumnDefinition Width="550*" />
                             <ColumnDefinition Width="20*"/>
-                            <ColumnDefinition Width="239*"/>
+                            <ColumnDefinition Width="117*"/>
                             <ColumnDefinition Width="117*"/>
                         </Grid.ColumnDefinitions>
                         <ToggleButton x:Name="menuButton" Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
@@ -82,10 +78,8 @@
                         </Button>
                         <TextBlock x:Name="WebSource"
                                VerticalAlignment="Center" 
-                               Grid.Column="1" Text="TeknoParrot UI" Margin="232,6,10,5" FontSize="20" Grid.RowSpan="2" Height="24" />
-                        <TextBlock x:Name="versionText"
-                        VerticalAlignment="Center" 
-                        Grid.Column="3" Text="X.X.X.XX" Margin="10,6,10,5" FontSize="20" Grid.RowSpan="2" Height="24" />
+                               Grid.Column="1" Text="TeknoParrot UI" Margin="300,6,10,5" FontSize="20" Grid.RowSpan="2" Height="24" />
+                        
                     </Grid>
                 </materialDesign:ColorZone>
                 <ContentControl x:Name="contentControl" Grid.Row="1"/>

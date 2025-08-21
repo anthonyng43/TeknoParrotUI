@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WanganLoaderUi.Common
+namespace TeknoParrotUi.Common
 {
     [Serializable]
     //This is information that is uploaded to the GitHub repo

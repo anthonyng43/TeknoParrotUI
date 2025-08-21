@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-using WanganLoaderUi.Common;
-using WanganLoaderUi.Common.InputListening;
-using WanganLoaderUi.Common.Jvs;
+using TeknoParrotUi.Common;
+using TeknoParrotUi.Common.InputListening;
+using TeknoParrotUi.Common.Jvs;
 using Xunit;
 
-namespace WanganLoaderUi.UnitTests
+namespace TeknoParrotUi.UnitTests
 {
-    public class WanganLoaderUiUnitTests
+    public class TeknoParrotUiUnitTests
     {
         // TODO: WRITE UNIT TESTS FOR EVERY SINGLE JVS CASE, INCLUDING AMOUNT OF SWITCHES / ANALOGS in queries etc.
         [Theory]

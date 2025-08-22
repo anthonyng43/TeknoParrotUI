@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -53,86 +54,34 @@ namespace TeknoParrotUi
             string systemDir = Environment.SystemDirectory; // System32
             string sysWOW64Dir = Environment.GetFolderPath(Environment.SpecialFolder.SystemX86); // SysWOW64
 
-            // Start assuming everything is installed
             bool hasRedist = true;
             bool hasDirectX = true;
 
-            string[] redistFiles =
-            {
-                "concrt140.dll","mfc100.dll","mfc100chs.dll","mfc100cht.dll","mfc100deu.dll","mfc100enu.dll","mfc100esn.dll",
-                "mfc100fra.dll","mfc100ita.dll","mfc100jpn.dll","mfc100kor.dll","mfc100rus.dll","mfc100u.dll","mfc110.dll",
-                "mfc110chs.dll","mfc110cht.dll","mfc110deu.dll","mfc110enu.dll","mfc110esn.dll","mfc110fra.dll","mfc110ita.dll",
-                "mfc110jpn.dll","mfc110kor.dll","mfc110rus.dll","mfc110u.dll","mfc120.dll","mfc120chs.dll","mfc120cht.dll",
-                "mfc120deu.dll","mfc120enu.dll","mfc120esn.dll","mfc120fra.dll","mfc120ita.dll","mfc120jpn.dll","mfc120kor.dll",
-                "mfc120rus.dll","mfc120u.dll","mfc140.dll","mfc140chs.dll","mfc140cht.dll","mfc140deu.dll","mfc140enu.dll",
-                "mfc140esn.dll","mfc140fra.dll","mfc140ita.dll","mfc140jpn.dll","mfc140kor.dll","mfc140rus.dll","mfc140u.dll",
-                "mfc42.dll","mfc42u.dll","MFCaptureEngine.dll","mfcm100.dll","mfcm100u.dll","mfcm110.dll","mfcm110u.dll",
-                "mfcm120.dll","mfcm120u.dll","mfcm140.dll","mfcm140u.dll","mfcore.dll","mfcsubs.dll","msvcirt.dll","msvcp_win.dll",
-                "msvcp100.dll","msvcp110.dll","msvcp110_win.dll","msvcp120.dll","msvcp120_clr0400.dll","msvcp140.dll","msvcp140_1.dll",
-                "msvcp140_2.dll","msvcp140_atomic_wait.dll","msvcp140_clr0400.dll","msvcp140_codecvt_ids.dll","msvcp140d_atomic_wait.dll",
-                "msvcp140d_codecvt_ids.dll","msvcp60.dll","msvcr100.dll","msvcr100_clr0400.dll","msvcr110.dll","msvcr120.dll",
-                "msvcr120_clr0400.dll","msvcrt.dll","vcamp110.dll","vcamp120.dll","vcamp140.dll","VCardParser.dll","vccorlib110.dll",
-                "vccorlib120.dll","vccorlib140.dll","vcomp100.dll","vcomp110.dll","vcomp120.dll","vcomp140.dll","vcruntime140.dll",
-                "vcruntime140_clr0400.dll","vcruntime140_threads.dll"
-            };
-
-            string[] directXFiles =
-            {
-                "d3dcompiler_33.dll","d3dcompiler_34.dll","d3dcompiler_35.dll","d3dcompiler_36.dll","D3DCompiler_37.dll",
-                "D3DCompiler_38.dll","D3DCompiler_39.dll","D3DCompiler_40.dll","D3DCompiler_41.dll","D3DCompiler_42.dll",
-                "D3DCompiler_43.dll","d3dcsx_42.dll","d3dcsx_43.dll","d3dx10.dll","d3dx10_33.dll","d3dx10_34.dll",
-                "d3dx10_35.dll","d3dx10_36.dll","d3dx10_37.dll","d3dx10_38.dll","d3dx10_39.dll","d3dx10_40.dll","d3dx10_41.dll",
-                "d3dx10_42.dll","d3dx10_43.dll","d3dx11_42.dll","d3dx11_43.dll","d3dx9_24.dll","d3dx9_25.dll","d3dx9_26.dll",
-                "d3dx9_27.dll","d3dx9_28.dll","d3dx9_29.dll","d3dx9_30.dll","d3dx9_31.dll","d3dx9_32.dll","d3dx9_33.dll",
-                "d3dx9_34.dll","d3dx9_35.dll","d3dx9_36.dll","d3dx9_37.dll","d3dx9_38.dll","d3dx9_39.dll","d3dx9_40.dll",
-                "d3dx9_41.dll","d3dx9_42.dll","d3dx9_43.dll","x3daudio1_0.dll","x3daudio1_1.dll","x3daudio1_2.dll",
-                "X3DAudio1_3.dll","X3DAudio1_4.dll","X3DAudio1_5.dll","X3DAudio1_6.dll","X3DAudio1_7.dll","xactengine2_0.dll",
-                "xactengine2_1.dll","xactengine2_10.dll","xactengine2_2.dll","xactengine2_3.dll","xactengine2_4.dll",
-                "xactengine2_5.dll","xactengine2_6.dll","xactengine2_7.dll","xactengine2_8.dll","xactengine2_9.dll","xactengine3_0.dll",
-                "xactengine3_1.dll","xactengine3_2.dll","xactengine3_3.dll","xactengine3_4.dll","xactengine3_5.dll","xactengine3_6.dll",
-                "xactengine3_7.dll","XAPOFX1_0.dll","XAPOFX1_1.dll","XAPOFX1_2.dll","XAPOFX1_3.dll","XAPOFX1_4.dll","XAPOFX1_5.dll",
-                "XAudio2_0.dll","XAudio2_1.dll","XAudio2_2.dll","XAudio2_3.dll","XAudio2_4.dll","XAudio2_5.dll","XAudio2_6.dll","XAudio2_7.dll",
-                "xinput1_1.dll","xinput1_2.dll","xinput1_3.dll","xinput9_1_0.dll"
-            };
-
+            string redistFile = "msvcp100.dll";
+            string directXFile = "D3DCompiler_43.dll";
+            
             if (Environment.Is64BitOperatingSystem)
             {
-                foreach (var dll in redistFiles)
+                if (!File.Exists(Path.Combine(sysWOW64Dir, redistFile)))
                 {
-                    if (!File.Exists(Path.Combine(sysWOW64Dir, dll)))
-                    {
-                        hasRedist = false;
-                        break; // No need to keep checking
-                    }
+                    hasRedist = false;
                 }
 
-                foreach (var dll in directXFiles)
+                if (!File.Exists(Path.Combine(sysWOW64Dir, directXFile)))
                 {
-                    if (!File.Exists(Path.Combine(sysWOW64Dir, dll)))
-                    {
-                        hasDirectX = false;
-                        break;
-                    }
+                    hasDirectX = false;
                 }
             }
             else
             {
-                foreach (var dll in redistFiles)
+                if (!File.Exists(Path.Combine(systemDir, redistFile)))
                 {
-                    if (!File.Exists(Path.Combine(systemDir, dll)))
-                    {
-                        hasRedist = false;
-                        break; // No need to keep checking
-                    }
+                    hasRedist = false;
                 }
 
-                foreach (var dll in directXFiles)
+                if (!File.Exists(Path.Combine(systemDir, redistFile)))
                 {
-                    if (!File.Exists(Path.Combine(systemDir, dll)))
-                    {
-                        hasDirectX = false;
-                        break;
-                    }
+                    hasDirectX = false;
                 }
             }
 
@@ -148,23 +97,56 @@ namespace TeknoParrotUi
                     MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
                     Debug.WriteLine("User chose YES ¡ª starting download/install process...");
-                    string commands = @"
+                    string commands = "";
+                    if (!hasRedist)
+                    {
+                        commands = @"
+                        @echo off
+                        cd /d ""%TEMP%""
+                        echo Downloading Visual C++ AIO...
+                        powershell -c ""(New-Object System.Net.WebClient).DownloadFile('https://github.com/abbodi1406/vcredist/releases/latest/download/VisualCppRedist_AIO_x86_x64.exe','vcredist_aio.exe')""
+                        echo Installing Visual C++ Redistributables...
+                        vcredist_aio.exe /y
+                        del vcredist_aio.exe /Q
+                        echo Done.
+                        echo Please relaunch TeknoParrotUi manually if it doesn't launch & pause
+                        ";
+                    }
+                    else if (!hasDirectX)
+                    {
+                        commands = @"
                         @echo off
                         cd /d ""%TEMP%""
                         echo Downloading DirectX...
-                        powershell -NoLogo -NoProfile -Command ""Invoke-WebRequest -Uri 'https://download.microsoft.com/download/1/7/0/17098FC8-4B77-4F3F-BEA3-9EAD6B4B6022/directx_Jun2010_redist.exe' -OutFile 'directx.exe'""
+                        powershell -c ""(New-Object System.Net.WebClient).DownloadFile('https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe','dxwebsetup.exe')""
+                       echo Installing DirectX...
+                        dxwebsetup.exe /Q
+                        echo Delete downloaded files...
+                        del dxwebsetup.exe /Q
+                        echo Done.
+                        echo Please relaunch TeknoParrotUi manually if it doesn't launch & pause
+                        ";
+                    }
+                    else
+                    {
+                        commands = @"
+                        @echo off
+                        cd /d ""%TEMP%""
+                        echo Downloading DirectX...
+                        powershell -c ""(New-Object System.Net.WebClient).DownloadFile('https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe','dxwebsetup.exe')""
                         echo Downloading Visual C++ AIO...
-                        powershell -NoLogo -NoProfile -Command ""Invoke-WebRequest -Uri 'https://github.com/abbodi1406/vcredist/releases/latest/download/VisualCppRedist_AIO_x86_x64.exe' -OutFile 'vcredist_aio.exe'""
+                        powershell -c ""(New-Object System.Net.WebClient).DownloadFile('https://github.com/abbodi1406/vcredist/releases/latest/download/VisualCppRedist_AIO_x86_x64.exe','vcredist_aio.exe')""
                         echo Installing DirectX...
-                        directx.exe /Q
+                        dxwebsetup.exe /Q
                         echo Installing Visual C++ Redistributables...
                         vcredist_aio.exe /y
                         echo Delete downloaded files...
-                        del directx.exe /Q
+                        del dxwebsetup.exe /Q
                         del vcredist_aio.exe /Q
                         echo Done.
-                        pause
+                        echo Please relaunch TeknoParrotUi manually if it doesn't launch & pause
                         ";
+                    }
 
                     // Save to a temporary batch file so CMD runs everything cleanly
                     string batchPath = Path.Combine(Path.GetTempPath(), "install_deps.bat");
